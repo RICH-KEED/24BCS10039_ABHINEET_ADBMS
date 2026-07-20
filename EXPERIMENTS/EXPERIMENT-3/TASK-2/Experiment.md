@@ -16,7 +16,8 @@ Write a query to count the number of students per city from the `students` table
 
 ```sql
 SELECT city,
-	   COUNT(*) AS student_count
+	   COUNT(*) AS student_count,
+	   AVG(marks) AS avg_marks
 FROM students
 GROUP BY city
 ORDER BY city;
@@ -25,16 +26,16 @@ ORDER BY city;
 ## Output
 
 ```text
-┌─────────┬──────────────┐
-│ city    │ student_count│
-├─────────┼──────────────┤
-│ Delhi   │ <n1>         │
-│ Mumbai  │ <n2>         │
-│ Kolkata │ <n3>         │
-│ Chennai │ <n4>         │
-└─────────┴──────────────┘
+┌─────────┬──────────────┬───────────┐
+│ city    │ student_count│ avg_marks │
+├─────────┼──────────────┼───────────┤
+│ Delhi   │ <n1>         │ <a1>      │
+│ Mumbai  │ <n2>         │ <a2>      │
+│ Kolkata │ <n3>         │ <a3>      │
+│ Chennai │ <n4>         │ <a4>      │
+└─────────┴──────────────┴───────────┘
 
-Replace `<n1>`, `<n2>`, ... with the counts returned by your database.
+Replace `<n1>`, `<n2>`, ... with the counts and `<a1>`, `<a2>`, ... with the average marks returned by your database.
 ```
 
 ## Output Screenshot
