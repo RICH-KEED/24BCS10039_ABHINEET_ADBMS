@@ -1,3 +1,4 @@
-Select Count(*) 
+Select Count(*), AVG(marks) as avg_marks
 from students
-where city = 'Delhi';
+group by city;
+

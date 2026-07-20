@@ -6,32 +6,35 @@ UID: 24BCS10039
 
 ## Aim
 
-To count the number of students residing in the city 'Delhi' using an aggregate query.
+To count the number of students in each city using an aggregate query.
 
 ## Question
 
-Write a query to count the number of records in the `students` table where the `city` is 'Delhi'.
+Write a query to count the number of students per city from the `students` table.
 
 ## SQL Queries Used
 
 ```sql
-Select Count(*) 
-from students
-where city = 'Delhi';
+SELECT city,
+	   COUNT(*) AS student_count
+FROM students
+GROUP BY city
+ORDER BY city;
 ```
 
 ## Output
 
 ```text
-The query returns a single integer representing the number of students from Delhi, for example:
+┌─────────┬──────────────┐
+│ city    │ student_count│
+├─────────┼──────────────┤
+│ Delhi   │ <n1>         │
+│ Mumbai  │ <n2>         │
+│ Kolkata │ <n3>         │
+│ Chennai │ <n4>         │
+└─────────┴──────────────┘
 
-┌───────┐
-│ count │
-├───────┤
-│  <n>  │
-└───────┘
-
-Replace `<n>` with the actual count returned by your database.
+Replace `<n1>`, `<n2>`, ... with the counts returned by your database.
 ```
 
 ## Output Screenshot
